@@ -51,6 +51,7 @@ hypoth_data_thresh$x=hypoth_data_thresh$bmi
 hypoth_data_thresh$y=hypoth_data_thresh$model_partial_residual
 
 reg <- lm(y ~ x, hypoth_data_thresh)
+tiff("test.tiff", units="in", width=8, height=4, res=300)
 g <- ggplot(hypoth_data_thresh, aes(x = x, y = y))
 g +
   geom_abline(intercept = coefficients(reg)[1], slope = coefficients(reg)[2], color = "gray", size = 1.5, linetype = "dashed") +
@@ -60,6 +61,7 @@ g +
   labs(x = "Maternal BMI", y = "Offspring Hypothalamus MD (z-score)") + 
   theme(panel.background = element_rect(fill = "white", color = "gray", size = 0.5)) +
   coord_fixed(ratio = 2) 
+dev.off()
 
 # #Categorical cut, WHO: healthy vs. overweight
 # hypoth_data$bmi_category <- cut(hypoth_data$bmi, breaks=c(0, 25, 100), labels=c("healthy","overweight"))
