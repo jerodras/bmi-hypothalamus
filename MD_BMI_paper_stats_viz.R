@@ -33,7 +33,7 @@ hypoth_data = read.csv('./uci_bmi_hth_covars.csv')
 # crPlots(bmi_linear_all,hth_md ~ bmi, smooth = FALSE)
 
 #Continuous BMI, Restricting to BMI threshold (visual inspection from FinnBrain)
-bmi_threshold=36
+bmi_threshold=35
 bmi_linear_thr <- lm(scale(hth_md) ~ ga + sa + sexBinary + bmi + wm_md + qc_mean_fd, data=filter(hypoth_data, bmi < bmi_threshold))
 summary(bmi_linear_thr)
 rsq.partial(bmi_linear_thr)
