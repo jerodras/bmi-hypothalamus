@@ -60,7 +60,9 @@ g +
   geom_point(color = rgb(0.1875,0.4375,0.7148), alpha = 1, size = 4) +
   labs(x = "Maternal BMI", y = "Offspring Hypothalamus MD (z-score)") + 
   theme(panel.background = element_rect(fill = "white", color = "gray", size = 0.5)) +
-  coord_fixed(ratio = 2) 
+  coord_fixed(ratio = 2) +
+  xlim(17.4, 35) +
+  ylim(-2,2.9)
 dev.off()
 
 # #Categorical cut, WHO: healthy vs. overweight
